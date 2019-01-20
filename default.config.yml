@@ -9,6 +9,8 @@ is_custom_bazel_version: yes
 bazel_version: '0.20.0'
 bazel_formula_url: https://raw.githubusercontent.com/Homebrew/homebrew-core/c624225ced9768d89be792a109ae7181eb4bd69c/Formula/bazel.rb
 
+ruby_version: 2.3.7
+
 homebrew_upgrade_all_packages: no
 
 homebrew_installed_packages:
@@ -22,9 +24,10 @@ homebrew_installed_packages:
   - nvm
   - openssl
   - postgresql@9.4
-  - rbenv
+  - rbenv  
   - readline
   - redis@3.2
+  - ruby-build
   - wget
   - yarn  
 
