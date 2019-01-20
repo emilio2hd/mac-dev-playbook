@@ -1,0 +1,69 @@
+---
+downloads: ~/.ansible-downloads/
+
+configure_sudoers: no
+configure_terminal: no
+configure_osx: no
+
+is_custom_bazel_version: yes
+bazel_version: '0.20.0'
+bazel_formula_url: https://raw.githubusercontent.com/Homebrew/homebrew-core/c624225ced9768d89be792a109ae7181eb4bd69c/Formula/bazel.rb
+
+homebrew_upgrade_all_packages: no
+
+homebrew_installed_packages:
+  - autoconf
+  - bash-completion
+  - gettext
+  - git
+  - httpie  
+  - imagemagick
+  - mcrypt
+  - nvm
+  - openssl
+  - postgresql@9.4
+  - rbenv
+  - readline
+  - redis@3.2
+  - wget
+  - yarn  
+
+homebrew_uninstalled_packages: []
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+  - homebrew/services
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - chromedriver
+  - docker
+  - firefox
+  - google-chrome
+  - handbrake
+  - java8
+  - slack
+  - sublime-text
+  - visual-studio-code
+
+homebrew_cask_uninstalled_apps: []
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+gem_packages: []
+  # - name: bundler
+  #   state: present # present/absent/latest, default: present
+  #   version: "~> 1.15.1" # default: N/A
+npm_packages: []
+  # - name: webpack
+  #   state: present # present/absent/latest, default: present
+  #   version: "^2.6" # default: N/A
+pip_packages: []
+  # - name: mkdocs
+  #   state: present # present/absent/latest, default: present
+  #   version: "0.16.3" # default: N/A
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks: []

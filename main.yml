@@ -1,0 +1,32 @@
+---
+- hosts: all
+  connection: local
+
+  vars_files:    
+    - default.config.yml
+
+  pre_tasks:
+    - include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ['always']
+
+  roles:
+    - role: geerlingguy.homebrew
+      tags: ['homebrew']
+
+  tasks:
+    - include_tasks: tasks/ansible-setup.yml    
+
+    - include_tasks: tasks/bazel.yml
+      when: is_custom_bazel_version
+      tags: ['bazel']
+
+    - include_tasks: tasks/extra-packages.yml
+      tags: ['extra-packages']
+
+    - name: Run configured post-provision ansible task files.
+      include_tasks: "{{ outer_item }}"
+      loop_control:
+        loop_var: outer_item
+      with_fileglob: "{{ post_provision_tasks|default(omit) }}"
