@@ -73,6 +73,7 @@ Packages (installed with Homebrew):
   - rbenv
   - readline    
   - redis@3.2
+  - ruby-build
   - wget
   - yarn 
 
@@ -89,6 +90,7 @@ It's my hope that I can get the rest of these things wrapped up into Ansible pla
 Application which has custom task to install 
 
   - [Bazel 0.20.0](https://bazel.build)
+  - [Ruby 2.3.7](http://www.ruby-lang.org/en/)
 
 ### Configuration to be added:
 
