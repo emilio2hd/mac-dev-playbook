@@ -1,8 +1,33 @@
 ---
 - set_fact: node_found=False expected_version=False
 
+- name: Creates nvm home directory
+  become: true
+  become_user: "{{ ansible_env.USER }}"
+  file:
+    path: "{{ ansible_env.HOME }}/.nvm"
+    state: directory
+
+- name: ensure .bash_profile exists
+  become: true
+  become_user: "{{ ansible_env.USER }}"
+  copy:
+    content: ""
+    dest: "{{ ansible_env.HOME }}/.bash_profile"
+    force: no    
+
+- name: "Ensure .bash_profile initialize nvm"
+  lineinfile: 
+    dest: "{{ item.dest }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - { dest: "{{ ansible_env.HOME }}/.bash_profile", line: 'export NVM_DIR="$HOME/.nvm"'}
+    - { dest: "{{ ansible_env.HOME }}/.bash_profile", line: 'NVM_HOMEBREW="$(brew --prefix nvm)/nvm.sh"'}
+    - { dest: "{{ ansible_env.HOME }}/.bash_profile", line: '[ -s "$NVM_HOMEBREW" ] && \. "$NVM_HOMEBREW"'}
+
 - name: "Check node version: {{node_version}}"
-  command: /usr/local/bin/node -v
+  command: which node
   register: command_result
   ignore_errors: True
 
@@ -13,5 +38,6 @@
   when: node_found
 
 - name: "Installing node version: {{node_version}} and setting as global"
-  command: /bin/bash -c "source /usr/local/opt/nvm/nvm.sh && nvm install {{node_version}} && nvm alias default {{node_version}}"
+  command: /bin/bash -c "source $(/usr/local/bin/brew --prefix nvm)/nvm.sh && nvm install {{node_version}} && nvm alias default {{node_version}}"
+  register: command_result
   when: not node_found or not expected_version
