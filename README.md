@@ -31,14 +31,14 @@ You can override any of the defaults configured in `default.config.yml` by creat
       - cowsay
       - git
       - go
-    
+
     gem_packages:
       - name: bundler
         state: latest
-    
+
     npm_packages:
       - name: webpack
-    
+
     pip_packages:
       - name: mkdocs
 
@@ -56,26 +56,24 @@ Applications (installed with Homebrew Cask):
   - [Java 8](https://java.com/en/download/faq/java8.xml)
   - [Slack](https://slack.com/)
   - [Sublime Text](https://www.sublimetext.com/)
-  - [Visual Studio Code](https://code.visualstudio.com/)  
+  - [Visual Studio Code](https://code.visualstudio.com/)
 
 Packages (installed with Homebrew):
 
   - autoconf
-  - bash-completion
-  - gettext
   - git
-  - httpie  
+  - httpie
   - imagemagick
   - mcrypt
   - nvm
   - openssl
   - postgresql@9.4
   - rbenv
-  - readline    
+  - readline
   - redis@3.2
   - ruby-build
   - wget
-  - yarn 
+  - yarn
 
 ## Future additions
 
@@ -87,7 +85,7 @@ It's my hope that I can get the rest of these things wrapped up into Ansible pla
 
 ### Custom brew instalation:
 
-Application which has custom task to install 
+Application which has custom task to install
 
   - [Bazel 0.20.0](https://bazel.build)
   - [Ruby 2.3.7](http://www.ruby-lang.org/en/)
