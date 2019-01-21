@@ -60,20 +60,20 @@ Applications (installed with Homebrew Cask):
 
 Packages (installed with Homebrew):
 
-  - autoconf
-  - git
-  - httpie
-  - imagemagick
-  - mcrypt
-  - nvm
-  - openssl
-  - postgresql@9.4
-  - rbenv
-  - readline
-  - redis@3.2
-  - ruby-build
-  - wget
-  - yarn
+  - [autoconf](https://formulae.brew.sh/formula/autoconf)
+  - [git](https://formulae.brew.sh/formula/git)
+  - [httpie](https://formulae.brew.sh/formula/httpie)
+  - [imagemagick](https://formulae.brew.sh/formula/imagemagick)
+  - [mcrypt](https://formulae.brew.sh/formula/mcrypt)
+  - [nvm](https://formulae.brew.sh/formula/nvm)
+  - [openssl](https://formulae.brew.sh/formula/openssl)
+  - [postgresql@9.4](https://formulae.brew.sh/formula/postgresql@9.4)
+  - [rbenv](https://formulae.brew.sh/formula/rbenv)
+  - [readline](https://formulae.brew.sh/formula/readline)
+  - [redis@3.2](https://formulae.brew.sh/formula/redis@3.2)
+  - [ruby-build](https://formulae.brew.sh/formula/ruby-build)
+  - [wget](https://formulae.brew.sh/formula/wget)
+  - [yarn](https://formulae.brew.sh/formula/yarn)
 
 ## Future additions
 
@@ -89,6 +89,7 @@ Application which has custom task to install
 
   - [Bazel 0.20.0](https://bazel.build)
   - [Ruby 2.3.7](http://www.ruby-lang.org/en/)
+  - [Node 8.9.1](https://nodejs.org/en/)
 
 ### Configuration to be added:
 
