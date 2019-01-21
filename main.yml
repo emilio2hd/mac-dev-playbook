@@ -2,7 +2,7 @@
 - hosts: all
   connection: local
 
-  vars_files:    
+  vars_files:
     - default.config.yml
 
   pre_tasks:
@@ -21,6 +21,9 @@
     - include_tasks: tasks/bazel.yml
       when: is_custom_bazel_version
       tags: ['bazel']
+
+    - include_tasks: tasks/node.yml
+      tags: ['node']
 
     - include_tasks: tasks/ruby.yml
       tags: ['ruby']

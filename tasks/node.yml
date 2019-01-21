@@ -1,0 +1,17 @@
+---
+- set_fact: node_found=False expected_version=False
+
+- name: "Check node version: {{node_version}}"
+  command: /usr/local/bin/node -v
+  register: command_result
+  ignore_errors: True
+
+- set_fact: node_found=True
+  when: command_result is succeeded
+
+- set_fact: expected_version="{{ command_result.stdout.find(node_version) != -1 }}"
+  when: node_found
+
+- name: "Installing node version: {{node_version}} and setting as global"
+  command: /bin/bash -c "source /usr/local/opt/nvm/nvm.sh && nvm install {{node_version}} && nvm alias default {{node_version}}"
+  when: not node_found or not expected_version
