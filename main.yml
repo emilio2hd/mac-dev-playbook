@@ -28,6 +28,8 @@
     - include_tasks: tasks/ruby.yml
       tags: ['ruby']
 
+    - include_tasks: tasks/elasticsearch.yml
+
     - include_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
 

@@ -1,0 +1,10 @@
+---
+- set_fact: elasticsearch_formular_path=/tmp/elasticsearch.rb
+
+- name: Copy elasticsearch to tmp dir
+  template:
+    src: templates/Formula/elasticsearch.rb.j2
+    dest: {{ elasticsearch_formular_path }}
+
+- name: "Installing elasticsearch: {{bazel_version}}"
+  command: "/usr/local/bin/brew install {{ elasticsearch_formular_path }}"
