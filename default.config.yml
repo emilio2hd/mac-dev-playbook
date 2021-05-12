@@ -1,10 +1,4 @@
 ---
-downloads: ~/.ansible-downloads/
-
-configure_sudoers: no
-configure_terminal: no
-configure_osx: no
-
 ruby_version: 2.3.7
 node_version: 8.9.1
 
