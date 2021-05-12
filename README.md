@@ -43,9 +43,7 @@ Applications (installed with Homebrew Cask):
   - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
   - [Google Chrome](https://www.google.com/chrome/)
   - [Handbrake](https://handbrake.fr/)
-  - [Java 8](https://java.com/en/download/faq/java8.xml)
   - [Slack](https://slack.com/)
-  - [Sublime Text](https://www.sublimetext.com/)
   - [Visual Studio Code](https://code.visualstudio.com/)
 
 Packages (installed with Homebrew):
@@ -57,13 +55,10 @@ Packages (installed with Homebrew):
   - [mcrypt](https://formulae.brew.sh/formula/mcrypt)
   - [nvm](https://formulae.brew.sh/formula/nvm)
   - [openssl](https://formulae.brew.sh/formula/openssl)
-  - [postgresql@9.4](https://formulae.brew.sh/formula/postgresql@9.4)
   - [rbenv](https://formulae.brew.sh/formula/rbenv)
   - [readline](https://formulae.brew.sh/formula/readline)
-  - [redis@3.2](https://formulae.brew.sh/formula/redis@3.2)
   - [ruby-build](https://formulae.brew.sh/formula/ruby-build)
   - [wget](https://formulae.brew.sh/formula/wget)
-  - [yarn](https://formulae.brew.sh/formula/yarn)
 
 ## Future additions
 

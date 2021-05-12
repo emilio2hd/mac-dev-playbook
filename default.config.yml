@@ -12,20 +12,16 @@ homebrew_installed_packages:
   - mcrypt
   - nvm
   - openssl
-  - postgresql@9.4
   - rbenv
   - readline
-  - redis@3.2
   - ruby-build
   - wget
-  - yarn
 
 homebrew_uninstalled_packages: []
 
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
-  - homebrew/services
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
@@ -34,9 +30,7 @@ homebrew_cask_apps:
   - firefox
   - google-chrome
   - handbrake
-  - java8
   - slack
-  - sublime-text
   - visual-studio-code
 
 homebrew_cask_uninstalled_apps: []
