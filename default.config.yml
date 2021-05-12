@@ -8,7 +8,9 @@ homebrew_installed_packages:
   - autoconf
   - git
   - httpie
+  - htop
   - imagemagick
+  - tree
   - mcrypt
   - nvm
   - openssl
@@ -16,6 +18,10 @@ homebrew_installed_packages:
   - readline
   - ruby-build
   - wget
+  - libpq
+  - zsh
+  - ctop
+  - tmux
 
 homebrew_uninstalled_packages: []
 
@@ -32,5 +38,10 @@ homebrew_cask_apps:
   - handbrake
   - slack
   - visual-studio-code
+  - postman
+  - keepassxc
+  - rectangle
+  - vlc
+  - iterm2
 
 homebrew_cask_uninstalled_apps: []
