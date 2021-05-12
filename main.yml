@@ -18,10 +18,6 @@
   tasks:
     - include_tasks: tasks/ansible-setup.yml
 
-    - include_tasks: tasks/bazel.yml
-      when: is_custom_bazel_version
-      tags: ['bazel']
-
     - include_tasks: tasks/node.yml
       tags: ['node']
 

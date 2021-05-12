@@ -87,7 +87,6 @@ It's my hope that I can get the rest of these things wrapped up into Ansible pla
 
 Application which has custom task to install
 
-  - [Bazel 0.20.0](https://bazel.build)
   - [Ruby 2.3.7](http://www.ruby-lang.org/en/)
   - [Node 8.9.1](https://nodejs.org/en/)
 
