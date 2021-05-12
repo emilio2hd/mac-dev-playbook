@@ -24,9 +24,6 @@
     - include_tasks: tasks/ruby.yml
       tags: ['ruby']
 
-    - include_tasks: tasks/elasticsearch.yml
-      when: is_custom_elasticsearch_version
-
     - include_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
 

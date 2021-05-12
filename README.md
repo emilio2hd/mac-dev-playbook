@@ -81,8 +81,6 @@ Packages (installed with Homebrew):
 
 It's my hope that I can get the rest of these things wrapped up into Ansible playbooks soon, but for now, these steps need to be completed manually (assuming you already have Xcode and Ansible installed, and have run this playbook).
 
-  - Elasticsearch - Required version 5.4.3, it's not possible install using old brew formula
-
 ### Custom brew instalation:
 
 Application which has custom task to install
