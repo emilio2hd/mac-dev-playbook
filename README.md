@@ -32,16 +32,6 @@ You can override any of the defaults configured in `default.config.yml` by creat
       - git
       - go
 
-    gem_packages:
-      - name: bundler
-        state: latest
-
-    npm_packages:
-      - name: webpack
-
-    pip_packages:
-      - name: mkdocs
-
 Any variable can be overridden in `config.yml`; see the supporting roles' documentation for a complete list of available variables.
 
 ## Included Applications / Configuration (Default)
