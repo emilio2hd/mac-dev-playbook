@@ -2,6 +2,12 @@
 ruby_version: 2.3.7
 node_version: 8.9.1
 
+# Directories to be created in home folder
+home_directories:
+  - Repository
+  - DockerApps
+  - .bin
+
 homebrew_upgrade_all_packages: false
 
 homebrew_installed_packages:

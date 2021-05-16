@@ -1,0 +1,6 @@
+---
+- name: Create a directories in {{ansible_env.HOME}}
+  file:
+    path: "{{ansible_env.HOME}}/{{item}}"
+    state: directory
+  with_items: "{{ home_directories }}"
