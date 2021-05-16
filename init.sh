@@ -15,18 +15,16 @@ else
     echo "Brew installed"
 fi
 
-if brew ls --versions python@2 > /dev/null; then
-  echo "Python 2 installed"
-else
-  brew install python@2
-fi
-
 which -s ansible
 if [[ $? != 0 ]] ; then
-    pip install ansible
+    pip3 install ansible
 else
     echo "Ansible installed"
 fi
 
+python3_path=$(which python3)
+
 ansible-galaxy install -r requirements.yml
-ansible-playbook main.yml -i inventory -K
+ansible-playbook main.yml \
+  -i inventory -K \
+  -e "ansible_python_interpreter=${python3_path}"
