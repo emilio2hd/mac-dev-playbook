@@ -1,0 +1,9 @@
+---
+- name: Copy git files to {{ansible_env.HOME}}
+  copy:
+    src: "{{item}}"
+    dest: "{{ansible_env.HOME}}/.{{item}}"
+  with_items:
+    - gitignore
+    - gitattributes
+    - gitconfig

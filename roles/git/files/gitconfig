@@ -1,0 +1,50 @@
+[alias]
+    # View abbreviated SHA, description, and history graph of the latest 20 commits
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+    # View the current working tree status using the short format
+    s = status -s
+
+    # Show the diff between the latest commit and the current state
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+    # Commit all changes
+    ca = !git add -A && git commit -av
+
+    # Switch to a branch, creating it if necessary
+    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+    # List aliases
+    aliases = config --get-regexp alias
+
+    # Amend the currently staged files to the latest commit
+    amend = commit --amend --reuse-message=HEAD
+
+    # Interactive rebase with the given number of latest commits
+    reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+    # Find branches containing commit
+    fb = "!f() { git branch -a --contains $1; }; f"
+
+    # Find commits by commit message
+    fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+    # Push force lease. It ensures you do not overwrite someone elses work by force pushing
+    pushfl = "!f() { git push --force-with-lease origin $1; }; f"
+
+[color]
+    # Use colors in Git commands that are capable of colored output when
+    # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+    ui = auto
+
+[core]
+    # Use custom `.gitignore` and `.gitattributes`.
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+
+    # Ensure line endings in files checkout are correct for OS X
+    autocrlf = input
+
+[include]
+    # Include custom local config
+    path = ~/.gitconfig.local

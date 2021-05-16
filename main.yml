@@ -15,6 +15,7 @@
     - role: geerlingguy.homebrew
       tags: ['homebrew']
     - role: directories
+    - role: git
 
   tasks:
     - include_tasks: tasks/node.yml
