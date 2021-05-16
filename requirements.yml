@@ -1,2 +1,6 @@
 ---
-- name: geerlingguy.homebrew
+roles:
+  - name: geerlingguy.homebrew
+
+collections:
+  - name: community.docker

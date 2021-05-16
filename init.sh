@@ -22,6 +22,21 @@ else
     echo "Ansible installed"
 fi
 
+which -s docker
+if [[ $? != 0 ]] ; then
+    brew install --cask docker
+    open --background -a Docker
+    while ! docker system info > /dev/null 2>&1; do sleep 1; done
+else
+    echo "Docker installed"
+fi
+
+pip3 show docker --quiet
+if [[ $? != 0 ]] ; then
+  pip3 install docker
+  pip3 install docker-compose
+fi
+
 python3_path=$(which python3)
 
 ansible-galaxy install -r requirements.yml
