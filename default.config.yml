@@ -2,7 +2,7 @@
 ruby_version: 2.3.7
 node_version: 8.9.1
 
-homebrew_upgrade_all_packages: no
+homebrew_upgrade_all_packages: false
 
 homebrew_installed_packages:
   - autoconf
@@ -29,10 +29,8 @@ homebrew_taps:
   - homebrew/core
   - homebrew/cask
 
-homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - chromedriver
-  - docker
   - firefox
   - google-chrome
   - handbrake
