@@ -1,0 +1,102 @@
+---
+- set_fact:
+    zsh_plugins_path: "{{ansible_env.HOME}}/.oh-my-zsh/custom/plugins"
+    zsh_themes_path: "{{ansible_env.HOME}}/.oh-my-zsh/custom/themes"
+
+- name: Check if oh my zsh is installed
+  stat:
+    path: "{{ansible_env.HOME}}/.oh-my-zsh"
+  register: ohmyzsh_folder
+
+- name: Installing oh my zsh
+  shell: curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -
+  args:
+    warn: no
+  when: not ohmyzsh_folder.stat.exists
+
+- name: Ensure directories zsh permission
+  file:
+    path: "{{ item }}"
+    mode: '0755'
+  with_items:
+    - /usr/local/share/zsh
+    - /usr/local/share/zsh/site-functions
+
+- name: Copy zsh .files
+  copy:
+    src: "{{item}}"
+    dest: "{{ansible_env.HOME}}/.{{item}}"
+  with_items:
+    - zshenv
+    - aliases
+    - warprc
+    - p10k.zsh
+
+- name: Creating empty ~/.zshrc.local
+  file:
+    path: "{{ansible_env.HOME}}/.zshrc.local"
+    state: touch
+
+- name: Update .zshrc adding to source .zshrc.local
+  blockinfile:
+    backup: yes
+    marker: "# {mark} .zshrc.local"
+    path: "{{ansible_env.HOME}}/.zshrc"
+    block: |
+      # Local config
+      [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+- name: Update .zshrc adding to source .aliases
+  blockinfile:
+    backup: yes
+    marker: "# {mark} .aliases"
+    path: "{{ansible_env.HOME}}/.zshrc"
+    block: |
+      # aliases
+      [[ -f ~/.aliases ]] && source ~/.aliases
+
+- name: Install oh-my-zsh plugins
+  git: repo={{ item.git }} dest={{ zsh_plugins_path }}/{{ item.name }} version=master accept_hostkey=yes
+  with_items:
+    - { name: zsh-autosuggestions, git: "git://github.com/zsh-users/zsh-autosuggestions" }
+    - { name: zsh-syntax-highlighting, git: "git://github.com/zsh-users/zsh-syntax-highlighting" }
+
+- name: Install oh-my-zsh powerlevel10k theme
+  git: repo=git://github.com/romkatv/powerlevel10k dest={{ zsh_themes_path }}/powerlevel10k version=master accept_hostkey=yes
+
+- name: Update .zshrc adding powerlevel10k instant prompt
+  blockinfile:
+    backup: yes
+    insertbefore: BOF
+    marker: "# {mark} powerlevel10k instant prompt"
+    path: "{{ansible_env.HOME}}/.zshrc"
+    block: |
+      # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+      # Initialization code that may require console input (password prompts, [y/n]
+      # confirmations, etc.) must go above this block; everything else may go below.
+      if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+        source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+      fi
+
+- name: Update engines source location.
+  lineinfile:
+    path: "{{ansible_env.HOME}}/.zshrc"
+    regexp: '^ZSH_THEME=".+"'
+    line: "ZSH_THEME=\"powerlevel10k/powerlevel10k\""
+    backrefs: yes # if the regexp does not match, the file will be left unchanged.
+
+- name: Update engines source location.
+  lineinfile:
+    path: "{{ansible_env.HOME}}/.zshrc"
+    regexp: '^plugins=\(.+\)$'
+    line: "plugins=(git wd docker docker-compose rails zsh-autosuggestions zsh-syntax-highlighting tmux)"
+    backrefs: yes
+
+- name: Update .zshrc adding to source .p10k.zsh
+  blockinfile:
+    backup: yes
+    marker: "# {mark} .p10k.zsh"
+    path: "{{ansible_env.HOME}}/.zshrc"
+    block: |
+      # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

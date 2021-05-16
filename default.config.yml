@@ -34,6 +34,7 @@ homebrew_uninstalled_packages: []
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
+  - homebrew/cask-fonts
 
 homebrew_cask_apps:
   - chromedriver
@@ -47,5 +48,6 @@ homebrew_cask_apps:
   - rectangle
   - vlc
   - iterm2
+  - font-meslo-lg-nerd-font # Font used by powerlevel10k
 
 homebrew_cask_uninstalled_apps: []

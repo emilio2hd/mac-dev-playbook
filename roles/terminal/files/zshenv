@@ -1,0 +1,8 @@
+# Include libpq to PATH in order to access pg_* tools from anywhere
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# Include home .bin folder to path
+export PATH="~/.bin:$PATH"
+
+# Local config
+[[ -f $HOME/.zshenv.local ]] && source $HOME/.zshenv.local

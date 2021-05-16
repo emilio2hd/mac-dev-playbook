@@ -16,6 +16,8 @@
       tags: ['homebrew']
     - role: directories
     - role: git
+    - role: terminal
+      tags: ['terminal']
 
   tasks:
     - include_tasks: tasks/node.yml
