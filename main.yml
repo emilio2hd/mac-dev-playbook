@@ -18,10 +18,9 @@
     - role: git
     - role: terminal
       tags: ['terminal']
+    - role: ruby
+      tags: ['ruby']
 
   tasks:
     - include_tasks: tasks/node.yml
       tags: ['node']
-
-    - include_tasks: tasks/ruby.yml
-      tags: ['ruby']

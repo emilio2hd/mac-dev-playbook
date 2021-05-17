@@ -1,0 +1,23 @@
+---
+- name: Update .zshrc adding rbenv init
+  lineinfile:
+    path: "{{ansible_env.HOME}}/.zshrc"
+    line: eval "$(rbenv init -)"
+
+- include_tasks: install_version.yml
+  vars:
+    ruby_version: "{{item}}"
+  with_items: "{{ruby_versions_install}}"
+
+- name: "Check global ruby version" 
+  command: "/usr/local/bin/rbenv version"
+  register: global_version
+
+- set_fact: global_version_different="{{ global_version.stdout.find(default_ruby_version) == -1 }}"
+
+- name: "Set global ruby version: {{ default_ruby_version }}"
+  command: "/usr/local/bin/rbenv global {{ default_ruby_version }}"
+  when: global_version_different
+
+- name: Add bundle config libpq berfore installing pg gem
+  ansible.builtin.shell: "bundle config --global build.pg --with-opt-dir=\"/usr/local/opt/libpq\""

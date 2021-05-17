@@ -1,14 +1,10 @@
 ---
 - name: "Check ruby version: {{ ruby_version }}" 
-  command: "/usr/local/bin/rbenv version"
+  command: "/usr/local/bin/rbenv versions"
   register: command_result
 
 - set_fact: version_installed="{{ command_result.stdout.find(ruby_version) != -1 }}"
 
 - name: "Installing ruby version: {{ ruby_version }}" 
   command: "/usr/local/bin/rbenv install {{ ruby_version }}"
-  when: not version_installed
-
-- name: "Set global ruby version: {{ ruby_version }}" 
-  command: "/usr/local/bin/rbenv global {{ ruby_version }}"
   when: not version_installed

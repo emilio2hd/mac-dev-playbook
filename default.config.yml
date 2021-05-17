@@ -1,5 +1,10 @@
 ---
-ruby_version: 2.3.7
+ruby_versions_install:
+  - 2.6.4
+  - 2.6.6
+
+default_ruby_version: 2.6.4
+
 node_version: 8.9.1
 
 # Directories to be created in home folder
