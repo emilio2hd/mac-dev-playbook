@@ -20,7 +20,5 @@
       tags: ['terminal']
     - role: ruby
       tags: ['ruby']
-
-  tasks:
-    - include_tasks: tasks/node.yml
+    - role: node
       tags: ['node']

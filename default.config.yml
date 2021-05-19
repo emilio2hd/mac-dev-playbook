@@ -5,7 +5,13 @@ ruby_versions_install:
 
 default_ruby_version: 2.6.4
 
-node_version: 8.9.1
+# NVM & Node
+node_versions_install:
+  - 8.9.1
+  - 10.18.1
+  - 14.15.0
+
+default_node_version: 14.15.0
 
 # Directories to be created in home folder
 home_directories:

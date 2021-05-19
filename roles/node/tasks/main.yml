@@ -1,0 +1,23 @@
+---
+- name: Creates nvm home directory
+  file:
+    path: "{{ ansible_env.HOME }}/.nvm"
+    state: directory
+
+- include_tasks: install_version.yml
+  vars:
+    node_version: "{{item}}"
+  with_items: "{{node_versions_install}}"
+
+- name: Update .zshrc adding to source .p10k.zsh
+  blockinfile:
+    backup: yes
+    marker: "# {mark} nvm"
+    path: "{{ansible_env.HOME}}/.zshrc"
+    block: |
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh" # This loads nvm
+      [ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --prefix nvm)/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+- name: "Set default node version: {{ default_node_version }}"
+  shell: source $(brew --prefix nvm)/nvm.sh && nvm alias default {{default_node_version}}

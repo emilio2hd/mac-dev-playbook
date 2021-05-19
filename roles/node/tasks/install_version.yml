@@ -1,0 +1,12 @@
+---
+- name: "Check node version: {{ node_version }}"
+  shell: source $(brew --prefix nvm)/nvm.sh && nvm ls {{node_version}}
+  register: node_v_result
+  ignore_errors: true
+  no_log: true
+
+- set_fact: version_installed="{{ node_v_result is success }}"
+
+- name: "Installing node version: {{ node_version }}"
+  shell: source $(brew --prefix nvm)/nvm.sh && nvm install {{node_version}}
+  when: not version_installed
