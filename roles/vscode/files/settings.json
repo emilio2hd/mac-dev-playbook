@@ -1,0 +1,55 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "editor.minimap.enabled": false,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+
+  "files.autoSave": "onWindowChange",
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "files.trimTrailingWhitespace": true,
+
+  "git.inputValidationSubjectLength": 100,
+
+  "gitlens.blame.avatars": false,
+  "gitlens.hovers.avatars": false,
+  "gitlens.views.branches.avatars": false,
+  "gitlens.views.commits.avatars": false,
+  "gitlens.views.compare.avatars": false,
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.contributors.avatars": false,
+  "gitlens.views.fileHistory.avatars": false,
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.remotes.avatars": false,
+  "gitlens.views.repositories.avatars": false,
+  "gitlens.views.repositories.branches.layout": "list",
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.searchAndCompare.avatars": false,
+  "gitlens.views.search.avatars": false,
+  "gitlens.views.search.location": "gitlens",
+  "gitlens.views.tags.avatars": false,
+
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true
+    }
+  },
+  "ruby.format": "rubocop",
+
+  "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+
+  "window.title": "${rootName}${separator}${activeEditorMedium}${dirty}",
+  "window.zoomLevel": 0.2,
+
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  }
+}

@@ -13,6 +13,28 @@ node_versions_install:
 
 default_node_version: 14.15.0
 
+# Visual studio code
+vscode_extensions:
+  - Angular.ng-template
+  - CoenraadS.bracket-pair-colorizer
+  - dbaeumer.vscode-eslint
+  - eamodio.gitlens
+  - johnpapa.Angular2
+  - johnpapa.vscode-peacock
+  - ms-azuretools.vscode-docker
+  - ms-vscode.vscode-typescript-tslint-plugin
+  - msjsdiag.debugger-for-chrome
+  - nrwl.angular-console
+  - yzhang.markdown-all-in-one
+  - streetsidesoftware.code-spell-checker
+  - ryu1kn.partial-diff
+  - esbenp.prettier-vscode
+  - rebornix.ruby
+  - castwide.solargraph
+  - wingrunr21.vscode-ruby
+  - redhat.vscode-yaml
+  - connorshea.vscode-ruby-test-adapter
+
 # Directories to be created in home folder
 home_directories:
   - Repository

@@ -22,3 +22,5 @@
       tags: ['ruby']
     - role: node
       tags: ['node']
+    - role: vscode
+      tags: ['vscode']
