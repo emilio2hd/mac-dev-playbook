@@ -3,6 +3,7 @@
   copy:
     src: "settings.json"
     dest: "{{ansible_env.HOME}}/Library/Application Support/Code/User/settings.json"
+    backup: true
 
 - name: Installing vscode extensions
   shell: "/usr/local/bin/code --install-extension {{item}}"

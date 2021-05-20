@@ -34,6 +34,7 @@ vscode_extensions:
   - wingrunr21.vscode-ruby
   - redhat.vscode-yaml
   - connorshea.vscode-ruby-test-adapter
+  - ms-vsliveshare.vsliveshare
 
 # Directories to be created in home folder
 home_directories:
