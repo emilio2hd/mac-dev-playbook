@@ -78,18 +78,18 @@
         source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
       fi
 
-- name: Update engines source location.
+- name: Update .zshrc setting zsh theme powerlevel10k
   lineinfile:
     path: "{{ansible_env.HOME}}/.zshrc"
     regexp: '^ZSH_THEME=".+"'
     line: "ZSH_THEME=\"powerlevel10k/powerlevel10k\""
     backrefs: yes # if the regexp does not match, the file will be left unchanged.
 
-- name: Update engines source location.
+- name: Update .zshrc to load plugins
   lineinfile:
     path: "{{ansible_env.HOME}}/.zshrc"
     regexp: '^plugins=\(.+\)$'
-    line: "plugins=(git wd docker docker-compose rails zsh-autosuggestions zsh-syntax-highlighting tmux)"
+    line: "plugins=(git wd docker dotenv docker-compose rails zsh-autosuggestions zsh-syntax-highlighting tmux)"
     backrefs: yes
 
 - name: Update .zshrc adding to source .p10k.zsh
