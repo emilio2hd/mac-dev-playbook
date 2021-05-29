@@ -31,6 +31,7 @@
     - aliases
     - warprc
     - p10k.zsh
+    - tmux.conf
 
 - name: Creating empty ~/.zshrc.local
   file:
