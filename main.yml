@@ -24,3 +24,5 @@
       tags: ['node']
     - role: vscode
       tags: ['vscode']
+    - role: docker-containers
+      tags: ['dck', 'containers']

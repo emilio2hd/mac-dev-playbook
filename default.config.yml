@@ -42,6 +42,14 @@ home_directories:
   - DockerApps
   - .bin
 
+# Docker Containers
+docker_apps:
+  folder: "{{ansible_env.HOME}}/DockerApps"
+  postgres:
+    db_user: pg
+    db_password: 123456
+
+# Homebrew
 homebrew_upgrade_all_packages: false
 
 homebrew_installed_packages:

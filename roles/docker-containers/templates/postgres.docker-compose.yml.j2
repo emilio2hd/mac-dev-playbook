@@ -1,0 +1,19 @@
+version: "3.1"
+services:
+  postgres:
+    image: postgres:9.4
+    container_name: postgres
+    restart: always
+    networks:
+      - pgnet
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: {{docker_apps.postgres.db_password}}
+      POSTGRES_USER: {{docker_apps.postgres.db_user}}
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+networks:
+  pgnet:
+    driver: bridge

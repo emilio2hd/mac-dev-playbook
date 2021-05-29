@@ -1,0 +1,13 @@
+---
+- name: Create directories in {{docker_apps.folder}}
+  file:
+    path: "{{docker_apps.folder}}/{{item}}"
+    state: directory
+  with_items:
+    - postgres
+    - postgres/pgdata
+
+- name: Copy postgres docker-compose.yml file
+  template:
+    src: postgres.docker-compose.yml.j2
+    dest: "{{docker_apps.folder}}/postgres/docker-compose.yml"
