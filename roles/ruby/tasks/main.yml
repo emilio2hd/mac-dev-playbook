@@ -9,7 +9,7 @@
     ruby_version: "{{item}}"
   with_items: "{{ruby_versions_install}}"
 
-- name: "Check global ruby version" 
+- name: "Check global ruby version"
   command: "/usr/local/bin/rbenv version"
   register: global_version
 
@@ -19,5 +19,15 @@
   command: "/usr/local/bin/rbenv global {{ default_ruby_version }}"
   when: global_version_different
 
-- name: Add bundle config libpq berfore installing pg gem
+- name: Add bundle config libpq before installing pg gem
   ansible.builtin.shell: "bundle config --global build.pg --with-opt-dir=\"/usr/local/opt/libpq\""
+
+- name: Copy .railsrc file
+  template:
+    src: railsrc.j2
+    dest: "{{ansible_env.HOME}}/.railsrc"
+
+- name: Copy default rails_template file
+  copy:
+    src: "rails_template.rb"
+    dest: "{{ansible_env.HOME}}/.rails_template.rb"
