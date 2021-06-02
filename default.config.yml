@@ -41,6 +41,11 @@ home_directories:
   - Repository
   - DockerApps
   - .bin
+  - .rails_template
+
+# Rails template
+rails_template_repo: https://github.com/emilio2hd/rails_template.git
+rails_template_path: "{{ansible_env.HOME}}/.rails_template"
 
 # Docker Containers
 docker_apps:
