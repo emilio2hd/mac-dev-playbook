@@ -1,9 +1,13 @@
 ---
+# Ruby & Rails
 ruby_versions_install:
   - 2.6.4
   - 2.6.6
 
 default_ruby_version: 2.6.4
+
+rails_template_repo: https://github.com/emilio2hd/rails_template.git
+rails_template_path: "{{ansible_env.HOME}}/.rails_template"
 
 # NVM & Node
 node_versions_install:
@@ -42,10 +46,6 @@ home_directories:
   - DockerApps
   - .bin
   - .rails_template
-
-# Rails template
-rails_template_repo: https://github.com/emilio2hd/rails_template.git
-rails_template_path: "{{ansible_env.HOME}}/.rails_template"
 
 # Docker Containers
 docker_apps:
