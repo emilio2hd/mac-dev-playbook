@@ -1,6 +1,6 @@
 # Mac Development Ansible Playbook
 
-This playbook installs and configures most of the software I use on my Mac for web and software development.
+A playbook that installs and configures most of the software I use on my Mac for web and software development.
 
 *See also*:
 
@@ -10,17 +10,20 @@ This playbook installs and configures most of the software I use on my Mac for w
 ## Installation
 
   1. Clone this repository to your local drive.
-  2. Run `bash init.sh` inside this directory to install required libs and applications.
-  5. Run `ansible-playbook main.yml -i inventory -K` inside this directory. Enter your account password when prompted.
+  2. Run `bash init.sh` inside this directory to install required libs and applications. Enter your account password when prompted.
 
 > Note: If some Homebrew commands fail, you might need to agree to Xcode's license or fix some other Brew issue. Run `brew doctor` to see if this is the case.
 
 ### Running a specific set of tagged tasks
 
-You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag. The tags available are `dotfiles`, `homebrew`, `mas`, `extra-packages` and `osx`.
-
-    ansible-playbook main.yml -i inventory -K --tags "dotfiles,homebrew"
-
+You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag.
+```bash
+bash run.sh --tags "dotfiles,homebrew"
+```
+To see all the available tags, run:
+```bash
+bash init.sh --list-tags
+```
 ## Overriding Defaults
 
 Not everyone's development environment and preferred software configuration is the same.
@@ -36,7 +39,7 @@ Any variable can be overridden in `config.yml`; see the supporting roles' docume
 
 ## Included Applications / Configuration (Default)
 
-Applications (installed with Homebrew Cask):
+### Applications (installed with Homebrew Cask):
 
   - [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)
   - [Docker](https://www.docker.com/)
@@ -45,8 +48,14 @@ Applications (installed with Homebrew Cask):
   - [Handbrake](https://handbrake.fr/)
   - [Slack](https://slack.com/)
   - [Visual Studio Code](https://code.visualstudio.com/)
+  - [Postman](https://formulae.brew.sh/cask/postman)
+  - [KeePassXC](https://formulae.brew.sh/cask/keepassxc)
+  - [Rectangle](https://formulae.brew.sh/cask/rectangle)
+  - [VLC media player](https://formulae.brew.sh/cask/vlc)
+  - [iTerm2](https://formulae.brew.sh/cask/iterm2#default)
+  - [font-meslo-lg-nerd-font](https://github.com/Homebrew/homebrew-cask-fonts/blob/master/Casks/font-meslo-lg-nerd-font.rb)
 
-Packages (installed with Homebrew):
+### Packages (installed with Homebrew):
 
   - [autoconf](https://formulae.brew.sh/formula/autoconf)
   - [git](https://formulae.brew.sh/formula/git)
@@ -59,25 +68,38 @@ Packages (installed with Homebrew):
   - [readline](https://formulae.brew.sh/formula/readline)
   - [ruby-build](https://formulae.brew.sh/formula/ruby-build)
   - [wget](https://formulae.brew.sh/formula/wget)
+  - [htop](https://formulae.brew.sh/formula/htop)
+  - [tree](https://formulae.brew.sh/formula/tree)
+  - [libpq](https://formulae.brew.sh/formula/libpq)
+  - [zsh](https://formulae.brew.sh/formula/zsh)
+  - [ctop](https://formulae.brew.sh/formula/ctop)
+  - [tmux](https://formulae.brew.sh/formula/tmux)
 
-## Future additions
+### Visual Studio Code Extension:
 
-### Things that still need to be done manually
+  - [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
+  - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
+  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+  - [Angular Snippets](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2)
+  - [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
+  - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+  - [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
+  - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+  - [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
+  - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+  - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+  - [Partial Diff](https://marketplace.visualstudio.com/items?itemName=ryu1kn.partial-diff)
+  - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - [Ruby Language](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)
+  - [Ruby Solargraph](https://marketplace.visualstudio.com/items?itemName=castwide.solargraph)
+  - [VSCode Ruby](https://marketplace.visualstudio.com/items?itemName=wingrunr21.vscode-ruby)
+  - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+  - [Ruby Test Explorer](https://marketplace.visualstudio.com/items?itemName=connorshea.vscode-ruby-test-adapter)
+  - [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
 
-It's my hope that I can get the rest of these things wrapped up into Ansible playbooks soon, but for now, these steps need to be completed manually (assuming you already have Xcode and Ansible installed, and have run this playbook).
-
-### Custom brew instalation:
-
-Application which has custom task to install
-
-  - [Ruby 2.3.7](http://www.ruby-lang.org/en/)
-  - [Node 8.9.1](https://nodejs.org/en/)
-
-### Configuration to be added:
-
-## Ansible for DevOps
-
-Check out [Ansible for DevOps](https://www.ansiblefordevops.com/), which teaches you how to automate almost anything with Ansible.
+## Ruby and Rails
+Installs ruby versions and configures `.railsrc` with my [rails_template](https://github.com/emilio2hd/rails_template.git).
 
 ## Author
 
