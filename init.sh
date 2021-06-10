@@ -40,6 +40,14 @@ fi
 python3_path=$(which python3)
 
 ansible-galaxy install -r requirements.yml
-ansible-playbook main.yml \
-  -i inventory -K \
-  -e "ansible_python_interpreter=${python3_path}"
+
+if [[ $# -gt 0 ]]; then
+    ansible-playbook main.yml \
+    -i inventory \
+    -e "ansible_python_interpreter=${python3_path}" \
+    "$@"
+else
+    ansible-playbook main.yml \
+    -i inventory \
+    -e "ansible_python_interpreter=${python3_path}"
+fi
